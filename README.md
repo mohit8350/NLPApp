@@ -38,7 +38,7 @@ NLPApp is a user-friendly desktop application built with Python and Tkinter that
    - Select from Sentiment Analysis, Named Entity Recognition, or Emotion Analysis.
 
 3. **Enter Text:**
-   - Input the text you want to analyze.
+   - Input the text you want to analyze and click on Generate button.
 
 4. **View Results:**
    - The application will display the results in an easy-to-understand format.
