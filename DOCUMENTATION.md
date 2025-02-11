@@ -40,3 +40,20 @@ The application integrates with the Hugging Face API for NER and Emotion Analysi
 
 1. Obtain a Hugging Face API key.
 2. Store the API key in a `.env` file as follows:
+3. 
+     ## Installation
+   
+   1. **Clone the repository:**
+      ```bash
+      git clone https://github.com/mohit8350/NLPApp.git
+      cd NLPApp
+   2. **Install dependencies:**
+        pip install -r requirements.txt
+   3. **Set up environment variables:**
+   - Create a `.env` file in the root directory.
+   - Add your Hugging Face API key as follows:
+     ```
+     API_KEY=your_api_key_here
+     ```
+   4. **Run the application:**
+         python app.py
