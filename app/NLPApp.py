@@ -243,7 +243,7 @@ class NLPApp:
     def do_sentiment_analyze(self):
         
         text = self.sentence.get("1.0", tk.END)
-        self.response = self.clfo.analyze_polarity(text)
+        self.response = self.clfo.classify_polarity(text)
         message_to_show= self.response["Polarity Label"]
 
         # Check if output_frame already exists and destroy it
