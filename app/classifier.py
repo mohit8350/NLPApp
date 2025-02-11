@@ -51,7 +51,6 @@ class classifiers:
 
 # classifing polarity score into human-friendly sentiment labels.
     def classify_polarity(self, polarity):
-        polarity = int (polarity)
         if polarity <= -0.75:
             return "😡 Completely Negative: The text you've provided is extremely negative! It conveys strong negativity."
         elif polarity <= -0.5:
