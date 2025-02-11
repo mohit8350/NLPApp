@@ -1,9 +1,3 @@
-
----
-
-### **2. Documentation File (`DOCUMENTATION.md`)**
-
-```markdown
 # NLPApp Documentation
 
 ## Overview
