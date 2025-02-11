@@ -56,4 +56,6 @@ The application integrates with the Hugging Face API for NER and Emotion Analysi
      API_KEY=your_api_key_here
      ```
    4. **Run the application:**
-         python app.py
+      ```
+      python app.py
+      ```
