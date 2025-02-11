@@ -28,3 +28,22 @@ NLPApp is a user-friendly desktop application built with Python and Tkinter that
 
    
 ---
+
+## Usage
+
+1. **Login or Register:**
+   - Use your email and password to log in or register as a new user.
+
+2. **Choose an NLP Task:**
+   - Select from Sentiment Analysis, Named Entity Recognition, or Emotion Analysis.
+
+3. **Enter Text:**
+   - Input the text you want to analyze.
+
+4. **View Results:**
+   - The application will display the results in an easy-to-understand format.
+
+
+
+
+
