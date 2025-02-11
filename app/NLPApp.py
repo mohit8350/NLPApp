@@ -243,7 +243,7 @@ class NLPApp:
     def do_sentiment_analyze(self):
         
         text = self.sentence.get("1.0", tk.END)
-        self.response = self.cflo.analyze_polarity(text)
+        self.response = self.clfo.analyze_polarity(text)
         message_to_show= self.response["Polarity Label"]
 
         # Check if output_frame already exists and destroy it
@@ -300,7 +300,7 @@ class NLPApp:
         # Insert the NER results into the Text widget
         for i in message_to_show:
 
-            if i["score"] > 0.7 and 'entity_group' in i:
+            if int(i["score"]) > 0.7 and 'entity_group' in i:
 
                 formatted_text = '{} {} {}\n'.format(
                     i['word'],
