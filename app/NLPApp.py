@@ -275,9 +275,11 @@ class NLPApp:
     def do_ner_analyze(self):
         
         text = self.sentence.get("1.0", tk.END)
-        self.response = self.apio.perform_NER(text)
-        message_to_show= self.response
+        message_to_show = self.apio.analyze_emotion(text)
 
+        text = self.sentence.get("1.0", tk.END)
+        message_to_show = self.apio.perform_NER(text)
+        
         # Check if output_frame already exists and destroy it
         if hasattr(self, "output_frame") and self.output_frame:
             self.output_frame.destroy()
@@ -297,25 +299,42 @@ class NLPApp:
         result_text.config(state=tk.NORMAL)
         result_text.delete("1.0", tk.END)
 
+
+        if not message_to_show:
+            result_text.insert(tk.END, "The text does not contain any detectable named entities.")
+
         # Insert the NER results into the Text widget
-        for i in message_to_show:
 
-            if int(i["score"]) > 0.7 and 'entity_group' in i:
+        else:
+            for i in message_to_show:
 
-                formatted_text = '{} {} {}\n'.format(
-                    i['word'],
-                    "-->",
-                    self.clfo.ner_labels_full_names(i['entity_group'])
+                if float(i["score"]) > 0.7 and 'entity_group' in i:
+
+                    formatted_text = '{} {} {}\n'.format(
+                        i['word'],
+                        "-->",
+                        self.clfo.ner_labels_full_names(i['entity_group'])
+                        
+                    )
+                    result_text.insert(tk.END, formatted_text)
+            
+                    # Make the Text widget read-only (non-editable)
+                    result_text.config(state=tk.DISABLED)
                     
-                )
-                result_text.insert(tk.END, formatted_text)
-        
-        # Make the Text widget read-only (non-editable)
-        result_text.config(state=tk.DISABLED)
-        
-        # Link the scrollbar to the Text widget
-        result_text.config(yscrollcommand=scrollbar.set)
-        scrollbar.config(command=result_text.yview)
+                    # Link the scrollbar to the Text widget
+                    result_text.config(yscrollcommand=scrollbar.set)
+                    scrollbar.config(command=result_text.yview)
+                    # If no valid entities were added, show the message
+            if result_text.get("1.0", tk.END).strip() == "":
+                result_text.insert(tk.END, "The text does not contain any detectable named entities.")
+                # Make the Text widget read-only (non-editable)
+                result_text.config(state=tk.DISABLED)
+                
+                # Link the scrollbar to the Text widget
+                result_text.config(yscrollcommand=scrollbar.set)
+                scrollbar.config(command=result_text.yview)
+            
+
         
     def do_emotion_analyze(self):
         
